@@ -27,7 +27,7 @@ void SCButton::OnPeriodExpiredStatic(void* instance) {
 }
 void SCButton::OnPeriodExpired() {
   if (!mGetButtonState) return;
-  mCurrentButtonState = mGetButtonState(mName);
+  mCurrentButtonState = mGetButtonState(mName) ^ mIsInverted;
   if (mLastButtonState != mCurrentButtonState)  //Button state changed.
   {
     if (mCurrentButtonState)  //Just now Button Pressed.
